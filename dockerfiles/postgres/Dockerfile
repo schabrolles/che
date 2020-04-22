@@ -6,7 +6,8 @@
 # SPDX-License-Identifier: EPL-2.0
 #
 
-FROM centos/postgresql-96-centos7
+#FROM centos/postgresql-96-centos7
+FROM postgres:96
 ADD init-che-user-and-run.sh.erb init-che-user.sh.erb /var/lib/pgsql/
 RUN cat /var/lib/pgsql/init-che-user.sh.erb | \
     sed -e "/exit 0/d" > /var/lib/pgsql/init-che-user-and-run.sh && \
